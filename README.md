@@ -56,7 +56,7 @@ All Wazuh rules, active response configuration, and schema contract definitions 
 ┌──────────────────────▼──────────────────────────────┐
 │  TOWER (inference node)                             │
 │  FastAPI · XGBoost classifier                      │
-│  Qwen 2.5 via Ollama · ChromaDB                    │
+│  Gemma 4 E2B via Ollama · ChromaDB                    │
 │  Behavioral baseline engine                         │
 │  Parquet data lake (USB) · DuckDB · Pipeline monitor│
 └──────────────────────┬──────────────────────────────┘
