@@ -92,15 +92,6 @@ Each tier only handles what the tier below it could not confidently resolve. Mos
 
 ---
 
-## Behavioral baseline engine
-
-Per-entity rolling profiles built exclusively from a synthetic curated dataset generated on the Windows VM. Attack traffic never touches baseline profiles.
-
-The synthetic traffic generator runs continuously on the Windows VM — file reads, directory listings, application launches, network requests, authentication events on a randomized schedule. This defines normal. Everything outside the synthetic envelope is anomalous by definition.
-
-Delta scores representing deviation from entity-specific historical profiles are included in the classifier feature vector alongside raw alert features. The same action from different entities scores differently based on their individual history.
-
-**Baseline poisoning is a known threat model and a specific Dolos research target.** A patient adversary who establishes presence before the baseline is set becomes effectively invisible to per-entity anomaly systems.
 
 ---
 
@@ -145,11 +136,6 @@ Each query is documented with the question it answers, the SQL, example output, 
 
 ---
 
-## Research contribution
-
-The Dolos adversarial loop is what distinguishes this platform from a detection engineering implementation.
-
-Most detection systems are evaluated against static attack datasets. Dolos evaluates Themis against an intelligent adversary that adapts — studying the classifier's scoring behavior, crafting evasion strategies, executing baseline poisoning attacks over time. The question of what architectural properties make a detection system resilient to this kind of pressure is the research thread that makes this publishable.
 
 ---
 
