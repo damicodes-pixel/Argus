@@ -75,7 +75,7 @@ All Wazuh rules, active response configuration, and schema contract definitions 
 | Tier | Component | Handles | Latency |
 |------|-----------|---------|---------|
 | 1 | XGBoost classifier | Bulk triage — suppress or escalate | Milliseconds |
-| 2 | Qwen 2.5 via Ollama | Ambiguous cases — LLM reasoning with semantic memory | Seconds |
+| 2 | Gemma 4 E2B via Ollama | Ambiguous cases — LLM reasoning with semantic memory | Seconds |
 | 3 | Human analyst | Escalated alerts — final judgment, override capture | Human |
 
 Each tier only handles what the tier below it could not confidently resolve. Most alerts never leave tier 1.
