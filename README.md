@@ -153,4 +153,4 @@ Built by Damilola Ogunsuyi — CS @ UMBC, Undergraduate Security Researcher at U
 
 ---
 
-*Argus watches everything. Themis judges it. Dolos attacks it. Aletheia reveals what's hidden.*
+
