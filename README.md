@@ -31,15 +31,6 @@ Wazuh alerts are validated against a versioned data contract, transformed into f
 
 Every decision is written to a time-partitioned Parquet data lake with full lineage. A pipeline observability layer monitors event rates, latency, schema failures, and log source health continuously. The classifier is trained in Jupyter and deployed to the inference tower via SCP. Human overrides feed back as labeled training data.
 
-### Dolos — adversarial stress-tester
-
-An adversarial model designed to induce model drift and simulate modern attacker strategies.
-
-Dolos operates at two layers:
-- **Classifier layer** — crafts feature vectors designed to score in the suppress band despite representing malicious activity
-- **Baseline layer** — executes slow normalization attacks that gradually poison per-entity behavioral profiles to make attack patterns appear normal over time
-
-The research loop between Themis and Dolos is the core contribution. Dolos finds weaknesses. Retraining closes them. Dolos finds new ones. The system improves through adversarial pressure, not just labeled data.
 
 ### Aletheia — autonomous threat hunter
 
