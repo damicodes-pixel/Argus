@@ -27,7 +27,7 @@ Wazuh alerts are validated against a versioned data contract, transformed into f
 
 - **Below 0.4** → suppressed immediately
 - **Above 0.85** → escalated immediately  
-- **Between 0.4 and 0.85** → routed to Qwen 2.5 via Ollama for LLM triage reasoning, augmented by ChromaDB semantic memory
+- **Between 0.4 and 0.85** → routed to Gemma 4 E2B via Ollama for LLM triage reasoning, augmented by ChromaDB semantic memory
 
 Every decision is written to a time-partitioned Parquet data lake with full lineage. A pipeline observability layer monitors event rates, latency, schema failures, and log source health continuously. The classifier is trained in Jupyter and deployed to the inference tower via SCP. Human overrides feed back as labeled training data.
 
