@@ -1,0 +1,7 @@
+<group name="windows,">
+  <rule id="60000" level="0" overwrite="yes">
+    <field name="win.system.providerName">\.+</field>
+    <options>no_full_log</options>
+    <description>Group of windows rules.</description>
+  </rule>
+</group>
