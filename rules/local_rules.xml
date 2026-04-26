@@ -29,3 +29,23 @@
     </mitre>
   </rule>
 </group>
+
+<rule id="100003" level="10">
+  <if_group>sysmon_event1</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)\\whoami\.exe$</field>
+  <field name="win.eventdata.parentImage" type="pcre2">(?i)powershell</field>
+  <description>T1033 - Whoami spawned by PowerShell (User Discovery)</description>
+  <mitre>
+    <id>T1033</id>
+  </mitre>
+</rule>
+
+<rule id="100004" level="10">
+  <if_group>sysmon_event1</if_group>
+  <field name="win.eventdata.image" type="pcre2">(?i)\\WMIC\.exe$</field>
+  <field name="win.eventdata.commandLine" type="pcre2">(?i)useraccount</field>
+  <description>T1033 - WMIC useraccount enumeration (User Discovery)</description>
+  <mitre>
+    <id>T1033</id>
+  </mitre>
+</rule>
