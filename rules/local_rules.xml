@@ -18,12 +18,14 @@
 
 </group>
 
-<rule id="100002" level="10">
-  <if_group>sysmon_event1</if_group>
-  <field name="win.eventdata.image" type="pcre2">(?i)\\net\.exe$</field>
-  <field name="win.eventdata.parentImage" type="pcre2">(?i)powershell</field>
-  <description>T1033 - Net.exe spawned by PowerShell (User Discovery)</description>
-  <mitre>
-    <id>T1033</id>
-  </mitre>
-</rule>
+<group name="local,sysmon,">
+  <rule id="100001" level="10">
+    <if_group>sysmon_event1</if_group>
+    <field name="win.eventdata.image" type="pcre2">(?i)\\net\.exe$</field>
+    <field name="win.eventdata.parentImage" type="pcre2">(?i)powershell</field>
+    <description>T1033 - Net.exe spawned by PowerShell (User Discovery)</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+  </rule>
+</group>
