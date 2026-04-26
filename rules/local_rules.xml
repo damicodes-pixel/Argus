@@ -19,7 +19,7 @@
 </group>
 
 <group name="local,sysmon,">
-  <rule id="100001" level="10">
+  <rule id="100002" level="10">
     <if_group>sysmon_event1</if_group>
     <field name="win.eventdata.image" type="pcre2">(?i)\\net\.exe$</field>
     <field name="win.eventdata.parentImage" type="pcre2">(?i)powershell</field>
