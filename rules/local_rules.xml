@@ -21,3 +21,10 @@
     </mitre>
   </rule>
 </group>
+
+<rule id="100006" level="10">
+  <if_sid>61603</if_sid>
+  <match>reg.exe|regedit.exe</match>
+  <field name="win.eventdata.commandLine">AtomicRedTeam</field>
+  <description>Atomic Red Team: Registry Tool Execution Detected</description>
+</rule>
