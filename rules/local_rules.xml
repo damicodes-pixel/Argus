@@ -1,30 +1,18 @@
-<!-- Local rules -->
-<group name="local,sysmon,">
-  <rule id="100005" level="15">
-    <if_sid>60000</if_sid>
-    <field name="win.eventdata.targetImage" type="pcre2">(?i)lsass\.exe</field>
-    <field name="win.system.providerName">Microsoft-Windows-Sysmon</field>
-    <description>T1003 - LSASS Access Detected</description>
-    <mitre>
-      <id>T1003</id>
-    </mitre>
-  </rule>
-</group>
+<group name="local,sysmon,atomic_red_team,">
 
-<group name="local,sysmon,">
-  <rule id="100006" level="15">
+  <rule id="100005" level="15">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.targetImage" type="pcre2">(?i)lsass\.exe</field>
+    <field name="win.eventdata.targetImage">lsass.exe</field>
     <description>T1003 - LSASS Access Detected (Potential Credential Dumping)</description>
     <mitre>
       <id>T1003</id>
     </mitre>
   </rule>
-</group>
 
-<rule id="100006" level="10">
-  <if_sid>61603</if_sid>
-  <match>reg.exe|regedit.exe</match>
-  <field name="win.eventdata.commandLine">AtomicRedTeam</field>
-  <description>Atomic Red Team: Registry Tool Execution Detected</description>
-</rule>
+  <rule id="100006" level="10">
+    <if_sid>61603</if_sid>
+    <match>AtomicRedTeam</match>
+    <description>Atomic Red Team activity detected via Sysmon</description>
+  </rule>
+
+</group>
