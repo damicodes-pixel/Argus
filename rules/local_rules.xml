@@ -16,3 +16,11 @@
   </rule>
 
 </group>
+
+<group name="sysmon,atomic_red_team,">
+  <rule id="100020" level="12">
+    <if_sid>61603</if_sid>
+    <match>AtomicRedTeam|atomic-red-team|Invoke-AtomicTest</match>
+    <description>Atomic Red Team: Execution detected on $(win.system.computer)</description>
+  </rule>
+</group>
