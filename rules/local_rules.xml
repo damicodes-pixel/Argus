@@ -2,25 +2,29 @@
 
   <rule id="100005" level="15">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.targetImage">lsass.exe</field>
+    <field name="win.eventdata.targetImage" type="pcre2">(?i)lsass\.exe</field>
     <description>T1003 - LSASS Access Detected (Potential Credential Dumping)</description>
     <mitre>
       <id>T1003</id>
     </mitre>
   </rule>
 
-  <rule id="100006" level="10">
-    <if_sid>61603</if_sid>
-    <match>AtomicRedTeam</match>
-    <description>Atomic Red Team activity detected via Sysmon</description>
-  </rule>
-
-</group>
-
-<group name="sysmon,atomic_red_team,">
   <rule id="100020" level="12">
     <if_sid>61603</if_sid>
-    <match>AtomicRedTeam|atomic-red-team|Invoke-AtomicTest</match>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i)AtomicRedTeam|Invoke-AtomicTest|atomic-red-team</field>
     <description>Atomic Red Team: Execution detected on $(win.system.computer)</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
   </rule>
+
+  <rule id="100021" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine" type="pcre2">rclone\.exe</field>
+    <description>Atomic Red Team: Potential Data Exfiltration via Rclone</description>
+    <mitre>
+      <id>T1567.002</id>
+    </mitre>
+  </rule>
+
 </group>
